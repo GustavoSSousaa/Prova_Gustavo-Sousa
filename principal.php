@@ -39,8 +39,8 @@ $permissoes = [
 [
     "Cadastrar"=>["cadastro_fornecedor.php","cadastro_produto.php"],
     "Buscar"=>["buscar_cliente.php","buscar_fornecedor.php","buscar_produto.php"],
-    "Alterar"=>["alterar_fornecedor.php","alterar_produto.php"]],
-    "Excluir"=>["excluir_produto.php"],
+    "Alterar"=>["alterar_fornecedor.php","alterar_produto.php"],
+    "Excluir"=>["excluir_produto.php"]],
 
     4=>
 [
@@ -87,7 +87,7 @@ $opcoes_menu = $permissoes[$id_perfil];
                     <ul class="dropdown-menu">
                         <?php foreach($arquivos as $arquivo): ?>
                         <li>
-                            <a href="><?= $arquivo ?>"><?= ucfirst(str_replace("_"," ",basename($arquivo,".php")))?></a>
+                            <a href="<?= $arquivo ?>"><?= ucfirst(str_replace("_"," ",basename($arquivo,".php")))?></a>
                         </li>
                             <?php endforeach; ?>
                     </ul>
