@@ -71,14 +71,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <label for="id_perfil">Perfil:</label>
                 <select id="id_perfil" name="id_perfil">
-                    <option value="1" <?php echo $usuario['id_perfil'] == 1 ? 'selected' : ''; ?>>Administrador</option>
-                    <option value="2" <?php echo $usuario['id_perfil'] == 2 ? 'selected' : ''; ?>>Usuário</option>
-                    <option value="3" <?php echo $usuario['id_perfil'] == 3 ? 'selected' : ''; ?>>Almoxarife</option>
-                    <option value="4" <?php echo $usuario['id_perfil'] == 4 ? 'selected' : ''; ?>>Cliente</option>
+                    <option value="1" <?=$usuario['id_perfil'] == 1 ? 'selected' : ''; ?>>Administrador</option>
+                    <option value="2" <?=$usuario['id_perfil'] == 2 ? 'selected' : ''; ?>>Secretaria</option>
+                    <option value="3" <?=$usuario['id_perfil'] == 3 ? 'selected' : ''; ?>>Almoxarife</option>
+                    <option value="4" <?=$usuario['id_perfil'] == 4 ? 'selected' : ''; ?>>Cliente</option>
                 </select>
+                <!-- Se o usuario logado for ADM, Exibir opção alterar senha -->
+                 <?php if ($_SESSION['perfil'] == 1): ?>
+                <label for="nova_senha">Nova Senha:</label>
+                <input type="password" id="nova_senha" name="nova_senha">
+                <?php endif; ?>
 
                 <button type="submit">Alterar</button>
-            </form>
+                <button type="reset">Cancelar</button>
+                </form>
+        <?php endif; ?>
+        <a href="principal.php">Voltar</a>
+</div>
     
 </body>
 </html>
