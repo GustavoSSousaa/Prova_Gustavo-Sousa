@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'menudropdow.php';
 
 if ($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 2) {
     echo "<script>alert('Acesso negado.');window.location.href='principal.php';</script>";

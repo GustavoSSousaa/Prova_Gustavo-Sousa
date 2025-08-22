@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'menudropdow.php';
 
 // 
 if ($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 2) {
@@ -64,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario']); ?>">
 
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" value="<?=htmlspecialchars($usuario['nome']); ?>" required>
+                <input type="text" id="nome" name="nome" value="<?=htmlspecialchars($usuario['nome']); ?>" required onkeypress ="mascara(this, nome)">
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<?=htmlspecialchars($usuario['email']); ?>" required>

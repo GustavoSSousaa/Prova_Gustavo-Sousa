@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'menudropdow.php';
 
 // verifica se o usuário tem permissão para acessar a página
 if ($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 2) {

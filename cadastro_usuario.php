@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'menudropdow.php';
+
 
 // verifica se o usuario tem permissao 
 if($_SESSION['perfil']!= 1) {
@@ -35,12 +37,13 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="mascaras.js"></script>
 </head>
 <body>
     <h2>Cadastro de Usuário</h2>
     <form method="POST" action="cadastro_usuario.php">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+        <input type="text" id="nome2" name="nome2" required onkeypress ="mascara(this, nome)">
         
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
