@@ -11,14 +11,21 @@ function executaMascara(){
 
 //MASCARAS
 //TELEFONE
-function telefone(variavel){
-    variavel=variavel.replace(/\D/g,"")
-    variavel=variavel.replace(/^(\d\d)(\d)/g,"($1) $2")//ADICIONA PARENTESES EM VOLTA DOS DOIS PRIMEIROS DIGITOS
-    variavel=variavel.replace(/(\d{4})(\d)/,"$1-$2")//ADICIONA HIFEM ENTRE O QUARTO E QUINTO DIGITO
-    return variavel
+
+function mascara(campo, funcao) {
+    setTimeout(() => {
+        campo.value = funcao(campo.value);
+    }, 1);
 }
 //rg/cpf
 
 function nome(v){
     return v.replace(/\d/g,"")
 }
+
+function telefone1(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/^(\d\d)(\d)/g, "($1) $2");
+    v = v.replace(/(\d{5})(\d)/, "$1-$2");
+    return v;
+    }
