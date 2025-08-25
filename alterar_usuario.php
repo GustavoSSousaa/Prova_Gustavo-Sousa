@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="styles.css">
     <!-- Certifique-se de que o Javascript está sendo carregado com sucesso -->
     <script src="scripts.js"></script>
+    <script src="mascaras.js"></script>
 </head>
 <body>
 <h2>Alterar Usuários</h2>
@@ -64,8 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form method="POST" action="processa_alteracao_usuario.php">
                 <input type="hidden" name="id_usuario" value="<?=htmlspecialchars($usuario['id_usuario']); ?>">
 
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" value="<?=htmlspecialchars($usuario['nome']); ?>" required onkeypress ="mascara(this, nome)">
+                <label for="nome1">Nome:</label>
+                <input type="text" id="nome1" name="nome1" value="<?=htmlspecialchars($usuario['nome']); ?>" required onkeypress ="mascara(this, nome)">
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<?=htmlspecialchars($usuario['email']); ?>" required>

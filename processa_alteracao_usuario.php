@@ -12,7 +12,7 @@ if ($_SESSION['perfil'] != 1){
 
 if ($_SERVER["REQUEST_METHOD"] =="POST"){
     $id_usuario = $_POST["id_usuario"];
-    $nome = $_POST["nome"];
+    $nome = $_POST["nome1"];
     $email = $_POST["email"];
     $id_perfil = $_POST["id_perfil"];
     $nova_senha = !empty($_POST['nova_senha']) ? password_hash($_POST['nova_senha'], PASSWORD_DEFAULT) : null;
