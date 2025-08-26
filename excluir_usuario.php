@@ -45,6 +45,120 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+
+        button {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 90%;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #dff9fb;
+            transition: 0.3s;
+        }
+
+        td {
+            color: #2c3e50;
+        }
+
+        a.action-btn {
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-size: 13px;
+            margin: 0 2px;
+        }
+
+        a.edit-btn {
+            background-color: #f39c12;
+        }
+
+        a.delete-btn {
+            background-color: #e74c3c;
+        }
+
+        a.edit-btn:hover { background-color: #d68910; }
+        a.delete-btn:hover { background-color: #c0392b; }
+
+        p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        a.back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+        }
+
+        a.back-btn:hover {
+            background-color: #2980b9;
+        }
+
+    </style>
 </head>
 <body>
     <h2>Excluir Usuários</h2>
@@ -76,6 +190,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <?php else: ?>
         <p>Nenhum usuário encontrado.</p>
     <?php endif; ?>
+        </br>
     <a href="principal.php">Voltar</a>
     
 </body>
