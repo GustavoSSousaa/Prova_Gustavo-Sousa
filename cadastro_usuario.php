@@ -38,7 +38,22 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <script src="mascaras.js"></script>
+    <style>
+    button {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+        </style>
 </head>
+
 <body>
     <h2>Cadastro de Usuário</h2>
     <form method="POST" action="cadastro_usuario.php">
@@ -63,5 +78,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         <button type="reset">Cancelar</button>
     </form>
     <a href="principal.php">Voltar</a>
+    
 </body>
 </html>
