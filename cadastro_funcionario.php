@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     if($stmt->execute()) {
         echo "<script>alert('Funcionario cadastrado com sucesso!');</script>";
     }else{
-        echo "<script>alert('Erro ao cadastrar usuário.');</script>";
+        echo "<script>alert('Erro ao cadastrar funcionario.');</script>";
     }
 };
 ?>
