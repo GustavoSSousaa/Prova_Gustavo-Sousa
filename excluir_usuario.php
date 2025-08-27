@@ -163,7 +163,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 <body>
     <h2>Excluir Usuários</h2>
     <?php if(!empty($usuarios)): ?>
-        <table border="1">
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
