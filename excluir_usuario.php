@@ -60,30 +60,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             color: #2c3e50;
         }
 
-        form {
-            margin-bottom: 20px;
-        }
-
-        input[type="text"] {
-            padding: 6px 10px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            width: 200px;
-        }
-
-        button {
-            padding: 6px 12px;
-            border-radius: 6px;
-            border: none;
-            background-color: #3498db;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-
         table {
             margin: 0 auto;
             border-collapse: collapse;
@@ -100,7 +76,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
 
         th {
-            background-color: #3498db;
+            background-color: #3498db; /* mesma cor da primeira tabela */
             color: white;
             text-transform: uppercase;
             font-size: 14px;
@@ -111,7 +87,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
 
         tr:hover {
-            background-color: #dff9fb;
+            background-color: #dff9fb; /* hover azul claro */
             transition: 0.3s;
         }
 
@@ -119,25 +95,19 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             color: #2c3e50;
         }
 
-        a.action-btn {
-            padding: 4px 8px;
+        a.delete-btn {
+            padding: 5px 10px;
             border-radius: 6px;
             text-decoration: none;
             color: white;
+            background-color: #e74c3c; /* vermelho para excluir */
             font-size: 13px;
             margin: 0 2px;
         }
 
-        a.edit-btn {
-            background-color: #f39c12;
+        a.delete-btn:hover {
+            background-color: #c0392b;
         }
-
-        a.delete-btn {
-            background-color: #e74c3c;
-        }
-
-        a.edit-btn:hover { background-color: #d68910; }
-        a.delete-btn:hover { background-color: #c0392b; }
 
         p {
             color: #555;
@@ -150,7 +120,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             padding: 6px 12px;
             border-radius: 6px;
             text-decoration: none;
-            background-color: #3498db;
+            background-color: #3498db; /* azul da primeira tabela */
             color: white;
         }
 
@@ -181,7 +151,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <td><?php echo htmlspecialchars($usuario['email']); ?></td>
                         <td><?php echo htmlspecialchars($usuario['id_perfil'] == 1 ? 'Administrador' : 'Usuário'); ?></td>
                         <td>
-                            <a href="excluir_usuario.php?id=<?php echo $usuario['id_usuario']; ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                            <a href="excluir_usuario.php?id=<?php echo $usuario['id_usuario']; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -191,7 +161,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <p>Nenhum usuário encontrado.</p>
     <?php endif; ?>
         </br>
-    <a href="principal.php">Voltar</a>
+    <a href="principal.php" class="back-btn">Voltar</a>
     
 </body>
 </html>
