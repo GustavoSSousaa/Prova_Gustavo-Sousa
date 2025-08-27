@@ -11,7 +11,7 @@ if($_SESSION['perfil']!= 1) {
 }
 
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
-    $nome = $_POST['nome'];
+    $nome = $_POST['nome2'];
     $email = $_POST['email'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $id_perfil = $_POST['id_perfil'];

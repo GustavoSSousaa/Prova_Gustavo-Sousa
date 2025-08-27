@@ -18,17 +18,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['busca'])) {
 
     // Verifica se a busca é numérica (ID) ou texto (nome)
     if (is_numeric($busca)) {
-        $sql = "SELECT * FROM usuario WHERE id_usuario = :busca ORDER BY nome ASC";
+        $sql = "SELECT * FROM funcionario WHERE id_funcionario = :busca ORDER BY nome_funcionario ASC";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':busca', $busca, PDO::PARAM_INT); 
     } else {
-        $sql = "SELECT * FROM usuario WHERE nome LIKE :busca_nome ORDER BY nome ASC";
+        $sql = "SELECT * FROM funcionario WHERE nome_funcionario LIKE :busca_nome ORDER BY nome_funcionario ASC";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':busca_nome', "$busca%", PDO::PARAM_STR); 
        
     }  
 }else{
-    $sql = "SELECT * FROM usuario ORDER BY nome ASC";
+    $sql = "SELECT * FROM funcionario ORDER BY nome_funcionario ASC";
     $stmt = $pdo->prepare($sql);
 }
 $stmt->execute();
@@ -110,10 +110,6 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
             transition: 0.3s;
         }
 
-        td {
-            color: #2c3e50;
-        }
-
         a.action-btn {
             padding: 4px 8px;
             border-radius: 6px;
@@ -138,7 +134,6 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
             color: #555;
             font-size: 16px;
         }
-
         a.back-btn {
             display: inline-block;
             margin-top: 20px;
@@ -153,12 +148,12 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
             background-color: #2980b9;
         }
 
+
     </style>
 </head>
 <body>
-    <h2>Lista de Usuários</h2>
-
-    <form method="POST" action="buscar_usuario.php">
+    <h2>Lista de Funcionários</h2>
+    <form method="POST" action="buscar_funcionario.php">
         <label for="busca">Buscar por ID ou Nome:</label>
         <input type="text" id="busca" name="busca" required>
         <button type="submit">Buscar</button>
@@ -170,31 +165,33 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
                     <th>Email</th>
-                    <th>Perfil</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($usuarios as $usuario): ?>
                     <tr>
-                        <td><?=htmlspecialchars($usuario['id_usuario']); ?></td>
-                        <td><?=htmlspecialchars($usuario['nome']); ?></td>
+                        <td><?=htmlspecialchars($usuario['id_funcionario']); ?></td>
+                        <td><?=htmlspecialchars($usuario['nome_funcionario']); ?></td>
+                        <td><?=htmlspecialchars($usuario['endereco']); ?></td>
+                        <td><?=htmlspecialchars($usuario['telefone']); ?></td>
                         <td><?=htmlspecialchars($usuario['email']); ?></td>
-                        <td><?=htmlspecialchars($usuario['id_perfil']); ?></td>
                         <td>
-                            <a href="alterar_usuario.php?id=<?=$usuario['id_usuario']; ?>" class="action-btn edit-btn">Alterar</a>
-                            <a href="excluir_usuario.php?id=<?=$usuario['id_usuario']; ?>" class="action-btn delete-btn" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
+                            <a href="alterar_funcionario.php?id=<?=$usuario['id_funcionario']; ?>" class="action-btn edit-btn">Alterar</a>
+                            <a href="excluir_funcionario.php?id=<?=$usuario['id_funcionario']; ?>" class="action-btn delete-btn" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     <?php else: ?>
-        <p>Nenhum usuário encontrado.</p>
+        <p>Nenhum funcionario encontrado.</p>
     <?php endif; ?>
 
+    <br>
     <a href="principal.php" class="back-btn">Voltar</a>
-
 </body>
 </html>
