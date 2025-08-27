@@ -48,6 +48,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Certifique-se de que o Javascript está sendo carregado com sucesso -->
     <script src="scripts.js"></script>
     <script src="mascaras.js"></script>
+
+    <style>
+    a.back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+        }
+
+        a.back-btn:hover {
+            background-color: #2980b9;
+        }
+        </style>
+        
 </head>
 <body>
 <h2>Alterar Usuários</h2>
@@ -88,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="reset">Cancelar</button>
                 </form>
         <?php endif; ?>
-        <a href="principal.php">Voltar</a>
+        <a href="principal.php" class="back-btn">Voltar</a>
 </div>
     
 </body>

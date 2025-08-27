@@ -29,3 +29,4 @@ function telefone1(v) {
     v = v.replace(/(\d{5})(\d)/, "$1-$2");
     return v;
     }
+
